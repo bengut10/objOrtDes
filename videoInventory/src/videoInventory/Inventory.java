@@ -22,6 +22,10 @@ public class Inventory{
             ois.close();
             fis.close();
          }
+		 catch(FileNotFoundException FNF)
+		{
+			 writeToFile();
+		}
 		catch(IOException ioe)
 		{
              ioe.printStackTrace();
