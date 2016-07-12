@@ -1,59 +1,13 @@
 package videoInventory;
 import java.util.ArrayList;
-import java.io.*;
 
 public class Inventory{
 	
-	ArrayList <Movie> list = new ArrayList <Movie> ();
-
-	Inventory() 
-	{
-		readFromFile();
-	}
+	private ArrayList <Movie> list = null;
 	
-	@SuppressWarnings("unchecked")
-	void readFromFile()
+	Inventory(ArrayList <Movie> list) 
 	{
-		try
-        {
-            FileInputStream fis = new FileInputStream("myfile.txt");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            list = (ArrayList<Movie>) ois.readObject();
-            ois.close();
-            fis.close();
-         }
-		 catch(FileNotFoundException FNF)
-		{
-			 writeToFile();
-		}
-		catch(IOException ioe)
-		{
-             ioe.printStackTrace();
-             return;    
-         }
-		catch(ClassNotFoundException c)
-		{
-             System.out.println("Class not found");
-             c.printStackTrace();
-             return;
-        }
-	}
-	
-	void writeToFile()
-	{
-		try
-		{
-	         FileOutputStream fos= new FileOutputStream("myfile.txt");
-	         ObjectOutputStream oos= new ObjectOutputStream(fos);
-	         oos.writeObject(list);
-	         oos.close();
-	         fos.close();
-	      }
-
-		catch(IOException ioe)
-		{ 
-			ioe.printStackTrace();
-		}
+		this.list = list;
 	}
 	
 	boolean addMovie(int SKU, int quantity, double price, String title)
@@ -92,7 +46,7 @@ public class Inventory{
 			m2 = list.get(i);
 			if(m2.getSKU() == SKU)
 			{
-				m2.display();
+				m2.displayMovie();
 				return true;
 			}
 		}
