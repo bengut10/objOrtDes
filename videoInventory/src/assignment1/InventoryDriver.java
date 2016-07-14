@@ -31,6 +31,7 @@ public class InventoryDriver {
 	/** Deserializes an  ArrayList of movie objects.
 	 * @return List of movie items.
 	 */
+	@SuppressWarnings("unchecked")
 	private static ArrayList <Movie> readFromFile()
 	{
 		ArrayList <Movie> list = new ArrayList <Movie> ();
