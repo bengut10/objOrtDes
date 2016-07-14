@@ -145,7 +145,10 @@ public class InventoryDriver {
 				Formatter fmt = new Formatter();
 				fmt.format("%1s %4s %6s %8s\n", "SKU", "Quantity", "Price", "Title");
 				System.out.println(fmt);
-				inv.displayInventory();
+				if(!inv.displayInventory())
+				{
+					System.out.println("Inventory is empty");
+				}
 			}
 			else if(choice == 5)
 			{

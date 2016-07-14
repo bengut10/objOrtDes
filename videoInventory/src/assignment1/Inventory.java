@@ -47,7 +47,10 @@ public class Inventory{
 	 */
 	boolean removeMovie(int SKU)
 	{
-		assert(list.size() > 0);
+		if(list.size() <= 0)
+		{
+			return false;
+		}
 		Movie m2 = new Movie();
 		for (int i = 0; i < list.size(); i++) 
 		{
@@ -68,7 +71,10 @@ public class Inventory{
 	 */
 	boolean displayMovie(int SKU)
 	{
-		assert(list.size() > 0);
+		if(list.size() <= 0)
+		{
+			return false;
+		}
 		Movie m2 = new Movie();
 		for (int i = 0; i < list.size(); i++) 
 		{
@@ -85,15 +91,19 @@ public class Inventory{
 	/**
 	 *  Displays the entire inventory.
 	 */
-	void displayInventory()
+	boolean displayInventory()
 	{
-		assert(list.size() > 0);
+		if(list.size() <= 0)
+		{
+			return false;
+		}
 		Movie m2 = new Movie();
 		for (int i = 0; i < list.size(); i++) 
 		{
 			 m2 = list.get(i);
 			 m2.displayInventory();
 		}
+		return true;
 	}
 	/**
 	 *  Determines whether a movie exists in the inventory.
@@ -103,6 +113,10 @@ public class Inventory{
 	 */
 	boolean SKUExists(int SKU)
 	{
+		if(list.size() <= 0)
+		{
+			return false;
+		}
 		for (Movie m1 : list) 
 		{
 		  if (m1.getSKU() == SKU)
