@@ -45,8 +45,7 @@ public class InventoryDriver {
          }
 		catch(FileNotFoundException FNF)
 		{
-			 //writeToFile(list);
-			 return null;
+			 return list;
 		}
 		catch(IOException ioe)
 		{
