@@ -1,12 +1,22 @@
-package videoInventory;
+package assignment1;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.Scanner;
 
+/** Class InventoryDriver deals with I/O operations 
+ * and displays a menu.
+ * @author Jose G.
+ * @author Ryan F.
+ * @version 1.0
+ */
 public class InventoryDriver {
 	
 	private static Scanner scan;
+	
+	/** Displays a menu with operations on the inventory 
+	 * as menu items. 
+	 */
 	public static void displayMenu()
 	{
 		System.out.println("Video Store Inventory Menu");
@@ -18,7 +28,9 @@ public class InventoryDriver {
 		System.out.println("Enter Your Choice:");
 	}
 	
-	@SuppressWarnings("unchecked")
+	/** Deserializes an  ArrayList of movie objects.
+	 * @return List of movie items.
+	 */
 	private static ArrayList <Movie> readFromFile()
 	{
 		ArrayList <Movie> list = new ArrayList <Movie> ();
@@ -32,7 +44,7 @@ public class InventoryDriver {
          }
 		catch(FileNotFoundException FNF)
 		{
-			 writeToFile(list);
+			 //writeToFile(list);
 			 return null;
 		}
 		catch(IOException ioe)
@@ -49,6 +61,9 @@ public class InventoryDriver {
 		return list;
 	}
 	
+	/** Serializes an ArraList of Movie objects
+	 * @param List of movie objects. 
+	 */
 	private static void writeToFile(ArrayList <Movie> list)
 	{
 		try
@@ -65,7 +80,8 @@ public class InventoryDriver {
 			ioe.printStackTrace();
 		}
 	}
-	
+	/** Program Driver 
+	 */
 	public static void main(String[] args) 
 	{		
 		int choice = 0;

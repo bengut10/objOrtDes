@@ -1,15 +1,34 @@
-package videoInventory;
+package assignment1;
 import java.util.ArrayList;
+
+/** Class Inventory performs operations on movie objects.
+ * 
+ * @author Jose G.
+ * @author Ryan F.
+ * @version 1.0
+ */
 
 public class Inventory{
 	
 	private ArrayList <Movie> list = null;
 	
+	/**
+	 *  Initializes an ArrayList as a class container 
+	 *  @param  ArrayList of movie objects.
+	 */
 	Inventory(ArrayList <Movie> list) 
 	{
 		this.list = list;
 	}
-	
+	/**
+	 *  Adds a movie object to the inventory.
+	 *  @param  SKU unique id for each movie.
+	 *  @param  quantity number of movie copies.
+	 *  @param  price cost of the movie .
+	 *  @param  title of the movie.
+	 *  @return true if the movie was added successfully.
+	 *  False other wise.
+	 */
 	boolean addMovie(int SKU, int quantity, double price, String title)
 	{
 		if(SKUExists(SKU))
@@ -20,7 +39,12 @@ public class Inventory{
 		list.add(movie);
 		return true;
 	}
-	
+	/**
+	 *  Removes a movie object from the inventory.
+	 *  @param  SKU unique id the movie to be removed.
+	 *  @return True if the movie was deleted successfully.
+	 *  False other wise
+	 */
 	boolean removeMovie(int SKU)
 	{
 		assert(list.size() > 0);
@@ -36,7 +60,12 @@ public class Inventory{
 		}
 		return false;
 	}
-	
+	/**
+	 *  Displays a movie given a SKU.
+	 *  @param  SKU unique id the movie to be displayed.
+	 *  @return True if the movie was displayed successfully.
+	 *  False other wise
+	 */
 	boolean displayMovie(int SKU)
 	{
 		assert(list.size() > 0);
@@ -53,6 +82,9 @@ public class Inventory{
 		return false;
 	}
 	
+	/**
+	 *  Displays the entire inventory.
+	 */
 	void displayInventory()
 	{
 		assert(list.size() > 0);
@@ -63,7 +95,12 @@ public class Inventory{
 			 m2.displayInventory();
 		}
 	}
-	
+	/**
+	 *  Determines whether a movie exists in the inventory.
+	 *  @param  SKU unique id the movie to be found.
+	 *  @return True if the movie exists in the inventory.
+	 *  False other wise
+	 */
 	boolean SKUExists(int SKU)
 	{
 		for (Movie m1 : list) 
