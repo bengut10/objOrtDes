@@ -4,10 +4,9 @@ import java.util.ArrayList;
 /** Class Inventory performs operations on movie objects.
  * 
  * @author Jose G.
- * @author Ryan F.
+ * @author Ryan J.
  * @version 1.0
  */
-
 public class Inventory{
 	
 	private ArrayList <Movie> list = null;
@@ -47,7 +46,7 @@ public class Inventory{
 	 */
 	boolean removeMovie(int SKU)
 	{
-		if(list.size() <= 0)
+		if(list.isEmpty())
 		{
 			return false;
 		}
@@ -71,7 +70,7 @@ public class Inventory{
 	 */
 	boolean displayMovie(int SKU)
 	{
-		if(list.size() <= 0)
+		if(list.isEmpty())
 		{
 			return false;
 		}
@@ -93,7 +92,7 @@ public class Inventory{
 	 */
 	boolean displayInventory()
 	{
-		if(list.size() <= 0)
+		if(list.isEmpty())
 		{
 			return false;
 		}
@@ -113,7 +112,7 @@ public class Inventory{
 	 */
 	boolean SKUExists(int SKU)
 	{
-		if(list.size() <= 0)
+		if(list.isEmpty())
 		{
 			return false;
 		}

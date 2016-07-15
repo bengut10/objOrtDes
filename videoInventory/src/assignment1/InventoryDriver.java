@@ -1,13 +1,12 @@
 package assignment1;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Formatter;
 import java.util.Scanner;
 
 /** Class InventoryDriver deals with I/O operations 
  * and displays a menu.
  * @author Jose G.
- * @author Ryan F.
+ * @author Ryan J.
  * @version 1.0
  */
 public class InventoryDriver {
@@ -31,7 +30,7 @@ public class InventoryDriver {
 	/** Deserializes an  ArrayList of movie objects.
 	 * @return List of movie items.
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked") 
 	private static ArrayList <Movie> readFromFile()
 	{
 		ArrayList <Movie> list = new ArrayList <Movie> ();
@@ -80,13 +79,14 @@ public class InventoryDriver {
 			ioe.printStackTrace();
 		}
 	}
+
 	/** Program Driver 
 	 */
 	public static void main(String[] args) 
 	{		
 		int choice = 0;
-		int SKU, quantity;
-		float price;
+		int SKU, quantity = 0;
+		float price = 0;
 		String title;
 		ArrayList <Movie> list = readFromFile();
 		Inventory inv = new Inventory(list);
@@ -95,19 +95,52 @@ public class InventoryDriver {
 		while(choice != 5)
 		{
 			displayMenu();
-			choice = scan.nextInt();
-			
+			if(scan.hasNextInt())
+			{
+				choice = scan.nextInt();
+			}
+			else
+			{
+				System.out.println("Invalid Input");
+				break;
+			}
 			if(choice == 1)
 			{
 				System.out.println("Enter the SKU: ");
-				SKU = scan.nextInt();
+				if(!scan.hasNextInt())
+				{
+					System.out.println("Invalid Input");
+					break;
+				}
+				else
+				{
+					SKU = scan.nextInt();
+				}
 				System.out.println("Enter the Quantity: ");
-				quantity = scan.nextInt();
+				if(!scan.hasNextInt())
+				{
+					System.out.println("Invalid Input");
+					break;
+				}
+				else
+				{
+					quantity = scan.nextInt();
+				}
 				System.out.println("Enter the Price: ");
-				price = scan.nextFloat();
+				if(!scan.hasNextFloat())
+				{
+					System.out.println("Invalid Input");
+					break;
+				}
+				else
+				{
+					price = scan.nextFloat();
+				}
+				
 				System.out.println("Enter the title: ");
 				title = scan.nextLine();
 				title = scan.nextLine();
+			
 				if(inv.addMovie(SKU, quantity, price, title))
 				{
 					System.out.println("Success: Movie added");
@@ -141,9 +174,6 @@ public class InventoryDriver {
 			}
 			else if(choice == 4)
 			{
-				Formatter fmt = new Formatter();
-				fmt.format("%1s %4s %6s %8s\n", "SKU", "Quantity", "Price", "Title");
-				System.out.println(fmt);
 				if(!inv.displayInventory())
 				{
 					System.out.println("Inventory is empty");

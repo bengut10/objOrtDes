@@ -5,7 +5,7 @@ import java.text.*;
 
 /** Class Movie holds the attributes and operations of a movie.
 * @author Jose G.
-* @author Ryan F.
+* @author Ryan J.
 * @version 1.0
 */
  public class Movie implements Serializable
@@ -64,13 +64,15 @@ import java.text.*;
 	 */
 	public void displayInventory()
 	{
+		Formatter header = new Formatter();
+		header.format("%1s %4s %6s %8s\n", "SKU", "Quantity", "Price", "Title");
+		System.out.println(header);
 		String pattern = "###.##";
 		DecimalFormat myFormatter = new DecimalFormat(pattern);
 		String output = myFormatter.format(this.price);
 		Formatter fmt = new Formatter();
 		fmt.format("%2s %6s %9s %1s\n",
 				this.SKU, this.quantity, "$" + output, this.title );
-
 		System.out.println (fmt);
 	}
 }
