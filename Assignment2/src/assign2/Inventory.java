@@ -1,13 +1,14 @@
 package assign2;
-import java.util.HashMap;
+
+import java.util.ArrayList;
 
 public class Inventory {
 	
-	HashMap <Integer, Object> mapper = null;
+	ArrayList <Product> list = null;
 	
 	Inventory()
 	{
-		mapper = new HashMap <Integer, Object>();
+		list = new ArrayList<Product>();
 	}
 	
 	/*public boolean addMovie(int SKU, int quantity, 
@@ -15,7 +16,7 @@ public class Inventory {
 	{	
 		Movie movie = new Movie(SKU,
 			 quantity, price, title, upc);
-		mapper.put(SKU, movie);
+		list.add(movie);
 		return true;
 	}
 	
@@ -24,7 +25,7 @@ public class Inventory {
 	{	
 		Toy toy = new Toy(SKU,
 			 quantity, price, title, weight);
-		mapper.put(SKU, toy);
+		list.add(toy);
 		return true;
 	}
 	*/	
@@ -34,54 +35,61 @@ public class Inventory {
 	{	
 		Book book = new Book(isbn, AuthorName,
 				SKU, quantity, price, title);
-		mapper.put(SKU, book);
+		list.add(book);
 		return true;
 	}
 	
 	boolean removeProduct(int SKU)
 	{
-		if(mapper.isEmpty())
+		if(list.isEmpty())
 		{
 			return false;
 		}
-		if(mapper.containsKey(SKU))
+		Product m  = findSku(SKU);
+		if(m == null)
 		{
-			mapper.remove(SKU);
-			return true;
+			return false;
 		}
-		return false;
+		list.remove(m);
+		return true;
 	}
 	
 	public boolean displayInventory()
 	{
-		if(mapper.isEmpty())
+		if(list.isEmpty())
 		{
 			return false;
 		}
-		mapper.forEach((k,v)->
+		for(Product m : list)
 		{
-			Object v1 = new Object();
-		    v1 = mapper.get(k);
-		    Product item2 = (Product) v1;
-		    item2.displayProductInventory();
-		});	
+			m.displayProductInventory();
+		}
 		return true;
 	}
 	
-	public boolean findSku(int SKU)
-	{
-		if(mapper.isEmpty())
+	public boolean displayProduct(int SKU){
+		if(list.isEmpty())
 		{
 			return false;
 		}
-		if(mapper.containsKey(SKU))
+		Product m = findSku(SKU);
+		if (m != null)
 		{
-			Object v1 = new Object();
-		    v1 = mapper.get(SKU);
-		    DisplayProduct dp = (DisplayProduct) v1;
-		    dp.displayProduct();    
-		    return true;
+			m.displayProduct();
+			return true;
 		}
-		return false;
+		return false;		
+	}
+	
+	public Product findSku(int SKU)
+	{
+		for(Product m : list)
+		{
+			if(m.getSKU() == SKU)
+			{
+				return m;
+			}
+		}
+		return null;
 	}
 }

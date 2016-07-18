@@ -8,13 +8,15 @@ import java.text.*;
 * @author Ryan J.
 * @version 1.0
 */
-public class Product implements Serializable
+abstract public class Product implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private int SKU;
 	private double price;
 	private String title;
 	private int quantity;
+	
+	abstract void displayProduct();
 	
 	/**
 	 *  Initializes a product with no assigned values.
@@ -48,6 +50,7 @@ public class Product implements Serializable
 	/**
 	 *  Displays a product's attributes 
 	 */
+	@Override
 	public String toString()
 	{
 		String pattern = "###.##";
@@ -62,11 +65,13 @@ public class Product implements Serializable
 	 */
 	public void displayProductInventory()
 	{
-		String pattern = "###.##";
+		String pattern = "00.00";
 		DecimalFormat myFormatter = new DecimalFormat(pattern);
 		String output = myFormatter.format(this.price);
 		Formatter fmt = new Formatter();
-		fmt.format("%2s %6s %9s %1s\n",
+		String cname = this.getClass().getSimpleName();
+		
+		fmt.format("%2s %4s %6s %9s %1s\n", cname,
 				this.SKU, this.quantity, "$" + output, this.title );
 		System.out.println (fmt);
 	}
@@ -77,6 +82,11 @@ public class Product implements Serializable
 		header.format("%1s %4s %6s %8s\n", "SKU", "Quantity", "Price", "Title");
 		System.out.println(header);
 	}
+
+	public void processSale(){
+		
+	}
+
 }
 	
 
