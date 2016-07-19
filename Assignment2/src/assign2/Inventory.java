@@ -11,7 +11,7 @@ public class Inventory {
 		list = new ArrayList<Product>();
 	}
 	
-	/*public boolean addMovie(int SKU, int quantity, 
+	public boolean addMovie(int SKU, int quantity, 
 			double price, String title, String upc)
 	{	
 		Movie movie = new Movie(SKU,
@@ -21,14 +21,13 @@ public class Inventory {
 	}
 	
 	public boolean addToy(int SKU, int quantity, 
-			double price, String title, int weight)
+			double price, String title, double weight)
 	{	
 		Toy toy = new Toy(SKU,
 			 quantity, price, title, weight);
 		list.add(toy);
 		return true;
 	}
-	*/	
 	
 	public boolean addBook(int SKU, int quantity, 
 			double price, String title, int isbn, String AuthorName)

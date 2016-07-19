@@ -17,6 +17,8 @@ abstract public class Product implements Serializable
 	private int quantity;
 	
 	abstract void displayProduct();
+	abstract public double getCommission(double costToShip);
+	abstract public double getShipCredit(int quantity);
 	
 	/**
 	 *  Initializes a product with no assigned values.
@@ -83,10 +85,27 @@ abstract public class Product implements Serializable
 		System.out.println(header);
 	}
 
-	public void processSale(){
+	public double totalPrice(int quantity)
+	{	
+		return this.price * quantity;		
+	}
+	
+	public void processSale(double tPrice, double tShipCre, 
+			double tCommission, double shipCost)
+	{
+		System.out.println("Total Price:   "  + tPrice);
+		System.out.println("Total Shipping Credit:   "  + tShipCre);
+		System.out.println("Total Commision:   "  + tCommission);
+		double profit = (tPrice + tShipCre) - (tCommission + shipCost);
+		System.out.println("Profit:   "  + profit);
 		
 	}
-
+	public boolean haveEnough(int sellQuantity) {
+		
+		return sellQuantity >= this.quantity;
+	}
+	
+	
 }
 	
 
