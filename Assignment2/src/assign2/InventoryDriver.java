@@ -25,10 +25,10 @@ public class InventoryDriver {
     @SuppressWarnings("unchecked")
     private static ArrayList <Product> readFromFile()
     {
-        ArrayList <Product> list = new ArrayList <> ();
+        ArrayList <Product> list = new ArrayList <Product> ();
         try
         {
-            FileInputStream fis = new FileInputStream("myfile.txt");
+            FileInputStream fis = new FileInputStream("myfile.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
             list = (ArrayList<Product>) ois.readObject();
             ois.close();
@@ -81,7 +81,7 @@ public class InventoryDriver {
         String title, upc, authorName;
         double costToShip, price, weight;
         ArrayList <Product> list = readFromFile();
-        Inventory inv = new Inventory();
+        Inventory inv = new Inventory(list);
         scan = new Scanner(System.in);
 
         do
@@ -127,7 +127,8 @@ public class InventoryDriver {
         				System.out.println("Enter the Author Name");
         				authorName = scan.nextLine();
         				authorName = scan.nextLine();
-        				inv.addBook(SKU, quantity, price, title, isbn, authorName);
+        				inv.addBook(SKU, quantity, price, 
+        						title, isbn, authorName);
         			}
         			if(type == 'T')
         			{
@@ -202,6 +203,7 @@ public class InventoryDriver {
                     }
         			break;
         		case 6: 
+        			writeToFile(list);
         			System.out.println("Exit Selected");
         			break;
         		default:
@@ -210,6 +212,5 @@ public class InventoryDriver {
         	
         }
         while(choice != 6);
-        writeToFile(list);
 	}
 }

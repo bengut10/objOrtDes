@@ -3,15 +3,13 @@ package assign2;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
-
 public class Inventory{
 	
-	ArrayList <Product> list = null;
+	private ArrayList <Product> list = null;
 	
-	Inventory()
+	Inventory(ArrayList <Product> list)
 	{
-		list = new ArrayList<Product>();
+		this.list = list;
 	}
 	
 	public boolean addMovie(int SKU, int quantity, 
