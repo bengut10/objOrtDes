@@ -8,7 +8,7 @@ import java.text.*;
 * @author Ryan J.
 * @version 1.0
 */
-abstract public class Product implements Serializable
+abstract public class Product implements Serializable, Comparable<Product>
 {
 	private static final long serialVersionUID = 1L;
 	private int SKU;
@@ -19,6 +19,7 @@ abstract public class Product implements Serializable
 	abstract void displayProduct();
 	abstract public double getCommission(double totalPrice);
 	abstract public double getShipCredit(int quantity);
+	abstract public String getTypeName();
 	
 	/**
 	 *  Initializes a product with no assigned values.
@@ -71,7 +72,7 @@ abstract public class Product implements Serializable
 		DecimalFormat myFormatter = new DecimalFormat(pattern);
 		String output = myFormatter.format(this.price);
 		Formatter fmt = new Formatter();
-		String cname = this.getClass().getSimpleName();
+		String cname = this.getTypeName();
 		
 		fmt.format("%2s %4s %6s %9s %1s\n", cname,
 				this.SKU, this.quantity, "$" + output, this.title );
@@ -91,9 +92,8 @@ abstract public class Product implements Serializable
 	}
 	
 	public void processSale(double tPrice, double tShipCre, 
-			double tCommission, double shipCost)
+			double tCommission, double shipCost, int redQuan)
 	{
-		
 		String pattern = "###.00";
 		DecimalFormat myFormatter = new DecimalFormat(pattern);
 		
@@ -109,13 +109,19 @@ abstract public class Product implements Serializable
 		double profit = (tPrice + tShipCre) - (tCommission + shipCost);
 		output = myFormatter.format(profit);
 		System.out.println("Profit:   "  + output);
+		this.quantity = this.quantity - redQuan; 
 		
 	}
 	public boolean haveEnough(int sellQuantity) {
 		
 		return sellQuantity <= this.quantity;
 	}
-	
+	@Override
+	public int compareTo(Product o) {
+		Integer rhsSKU = o.SKU;
+		Integer lhsSKU = this.SKU;
+		return lhsSKU.compareTo(rhsSKU);
+	}
 	
 }
 	

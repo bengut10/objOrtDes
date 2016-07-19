@@ -15,7 +15,7 @@ public class InventoryDriver {
         System.out.println("3. Find Product by SKU");
         System.out.println("4. Display inventory");
         System.out.println("5. Process a sale");
-        System.out.println("6: Exit");
+        System.out.println("6. Quit the program");
         System.out.println("Enter Your Choice:");
     }
     
@@ -187,7 +187,8 @@ public class InventoryDriver {
                     		double totalPrice = calc.totalPrice(sellQuantity);
 	                    	calc.processSale(totalPrice,
 	                    			calc.getShipCredit(sellQuantity),
-	                    			calc.getCommission(totalPrice), costToShip);
+	                    			calc.getCommission(totalPrice), 
+	                    			costToShip, sellQuantity);
                     	}
                     	else
                     	{
@@ -199,6 +200,9 @@ public class InventoryDriver {
                     	System.out.println("The inventory does not have"
                     			+ " an item with SKU: " + SKU);
                     }
+        			break;
+        		case 6: 
+        			System.out.println("Exit Selected");
         			break;
         		default:
         			System.out.println("Invalid Selection");

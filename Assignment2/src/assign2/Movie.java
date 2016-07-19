@@ -54,5 +54,10 @@ import java.io.*;
 	{
 		return this.shipping * quantity;
 	}
+
+	@Override
+	public String getTypeName() {
+		return "Movie";
+	}
 	
 }

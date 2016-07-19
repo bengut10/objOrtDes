@@ -9,7 +9,9 @@ public class Toy extends Product{
 
 	private static final long serialVersionUID = 1L;
 	private double weight;
-	private double commission = .15;
+	private final double shipCre = 4.49;
+	private final double commission = .15;
+	private final double varCost = .50;
    
 	Toy(int SKU, int quantity, double price, String title, double weight)
 	{
@@ -32,7 +34,13 @@ public class Toy extends Product{
 	public double getShipCredit(int quantity) 
 	{
 		
-		return 0;
+		int pounds = (int) Math.ceil(this.weight/16);
+		return shipCre * (quantity) + 
+				((quantity) * (pounds * varCost));
+	}
+	@Override
+	public String getTypeName() {
+		return "Toy";
 	}
    
    

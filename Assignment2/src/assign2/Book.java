@@ -35,5 +35,10 @@ public class Book extends Product
 	{
 		return this.shipping * quantity;
 	}
+
+	@Override
+	public String getTypeName() {
+		return "Book";
+	}
 }
 	

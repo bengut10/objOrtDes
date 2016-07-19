@@ -1,8 +1,11 @@
 package assign2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Inventory {
+
+
+public class Inventory{
 	
 	ArrayList <Product> list = null;
 	
@@ -59,9 +62,10 @@ public class Inventory {
 		{
 			return false;
 		}
+		Collections.sort(list);
 		for(Product m : list)
 		{
-			m.displayProductInventory();
+			m.displayProductInventory();	
 		}
 		return true;
 	}
@@ -91,4 +95,5 @@ public class Inventory {
 		}
 		return null;
 	}
+
 }
