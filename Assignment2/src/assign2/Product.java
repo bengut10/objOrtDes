@@ -17,7 +17,7 @@ abstract public class Product implements Serializable
 	private int quantity;
 	
 	abstract void displayProduct();
-	abstract public double getCommission(double costToShip);
+	abstract public double getCommission(double totalPrice);
 	abstract public double getShipCredit(int quantity);
 	
 	/**
@@ -55,7 +55,7 @@ abstract public class Product implements Serializable
 	@Override
 	public String toString()
 	{
-		String pattern = "###.##";
+		String pattern = "##.00";
 		DecimalFormat myFormatter = new DecimalFormat(pattern);
 		String output = myFormatter.format(this.price);
 		return "SKU: " + this.SKU + "\n" + "Title: " + this.quantity + "\n" 
@@ -67,7 +67,7 @@ abstract public class Product implements Serializable
 	 */
 	public void displayProductInventory()
 	{
-		String pattern = "00.00";
+		String pattern = "##.00";
 		DecimalFormat myFormatter = new DecimalFormat(pattern);
 		String output = myFormatter.format(this.price);
 		Formatter fmt = new Formatter();
@@ -93,16 +93,27 @@ abstract public class Product implements Serializable
 	public void processSale(double tPrice, double tShipCre, 
 			double tCommission, double shipCost)
 	{
-		System.out.println("Total Price:   "  + tPrice);
-		System.out.println("Total Shipping Credit:   "  + tShipCre);
-		System.out.println("Total Commision:   "  + tCommission);
+		
+		String pattern = "###.00";
+		DecimalFormat myFormatter = new DecimalFormat(pattern);
+		
+		String output = myFormatter.format(tPrice);
+		System.out.println("Total Price:   "  + output);
+		
+		output = myFormatter.format(tShipCre);
+		System.out.println("Total Shipping Credit:   "  + output);
+		
+		output = myFormatter.format(tCommission);
+		System.out.println("Total Commision:   "  + output);
+		
 		double profit = (tPrice + tShipCre) - (tCommission + shipCost);
-		System.out.println("Profit:   "  + profit);
+		output = myFormatter.format(profit);
+		System.out.println("Profit:   "  + output);
 		
 	}
 	public boolean haveEnough(int sellQuantity) {
 		
-		return sellQuantity >= this.quantity;
+		return sellQuantity <= this.quantity;
 	}
 	
 	

@@ -15,6 +15,7 @@ public class InventoryDriver {
         System.out.println("3. Find Product by SKU");
         System.out.println("4. Display inventory");
         System.out.println("5. Process a sale");
+        System.out.println("6: Exit");
         System.out.println("Enter Your Choice:");
     }
     
@@ -125,6 +126,7 @@ public class InventoryDriver {
         				isbn = scan.nextInt();
         				System.out.println("Enter the Author Name");
         				authorName = scan.nextLine();
+        				authorName = scan.nextLine();
         				inv.addBook(SKU, quantity, price, title, isbn, authorName);
         			}
         			if(type == 'T')
@@ -182,9 +184,10 @@ public class InventoryDriver {
                     {
                     	if(calc.haveEnough(sellQuantity))
                     	{
-	                    	calc.processSale(calc.totalPrice(sellQuantity),
+                    		double totalPrice = calc.totalPrice(sellQuantity);
+	                    	calc.processSale(totalPrice,
 	                    			calc.getShipCredit(sellQuantity),
-	                    			calc.getCommission(costToShip), costToShip);
+	                    			calc.getCommission(totalPrice), costToShip);
                     	}
                     	else
                     	{
@@ -202,7 +205,7 @@ public class InventoryDriver {
         	}  		
         	
         }
-        while(choice != 5);
+        while(choice != 6);
         writeToFile(list);
 	}
 }

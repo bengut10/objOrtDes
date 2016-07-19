@@ -17,10 +17,9 @@ public class Toy extends Product{
 		this.weight = weight;	
    	}
  
-	public double getCommission(double costToShip)
+	public double getCommission(double totalPrice)
 	{
-		double newCommission = this.commission * costToShip;
-		return newCommission;
+		return totalPrice * this.commission;
    	}
    
    	@Override
