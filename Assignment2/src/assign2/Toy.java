@@ -1,10 +1,10 @@
 package assign2;
 
-/**
-*
-* @author Ryan Jalufka
+/** Class Toy holds the attributes and operations of a Toy.
+* @author Jose G.
+* @author Ryan J.
+* @version 1.0
 */
-
 public class Toy extends Product{
 
 	private static final long serialVersionUID = 1L;
@@ -13,12 +13,21 @@ public class Toy extends Product{
 	private final double commission = .15;
 	private final double varCost = .50;
    
+    /**
+     * Initializes a Toy with assigned values.
+     * @param SKU unique id for each product.
+     * @param quantity number of products.
+     * @param price cost of the product.
+     * @param title name of the product.
+     * @param weight weight of the product.
+     */
 	Toy(int SKU, int quantity, double price, String title, double weight)
 	{
 		super (SKU, quantity, price, title);
 		this.weight = weight;	
    	}
  
+	@Override
 	public double getCommission(double totalPrice)
 	{
 		return totalPrice * this.commission;

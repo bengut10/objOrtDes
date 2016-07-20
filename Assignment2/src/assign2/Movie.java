@@ -8,7 +8,6 @@ import java.io.*;
 */
  public class Movie extends Product implements Serializable
  {
-
 	private static final long serialVersionUID = 1L;
 	private String UPC;
 	private double shipping = 2.98;
@@ -33,9 +32,7 @@ import java.io.*;
 		this.UPC = UPC;
 	}
 
-	/**
-	 *  Displays a movie's attributes 
-	*/
+    @Override
     public void displayProduct()
     {
     	System.out.println(toString() + "ISBN: " + "\n" +

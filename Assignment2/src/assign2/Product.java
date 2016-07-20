@@ -16,9 +16,29 @@ abstract public class Product implements Serializable, Comparable<Product>
 	private String title;
 	private int quantity;
 	
+	/**
+	 *  Displays a product's attributes
+	 */
 	abstract void displayProduct();
+	
+	/**
+	 *  Calculates the commission on a sale.
+	 *  @param totalPrice
+	 *  @returns commission of sale
+	 */
 	abstract public double getCommission(double totalPrice);
+	
+	/**
+	 *  Calculates the shipping credit on a sale.
+	 *  @param quantity
+	 *  @returns shipping credit of a sale.
+	 */
 	abstract public double getShipCredit(int quantity);
+	
+	/**
+	 *  Returns the type  of product.
+	 *  @returns name of product.
+	 */
 	abstract public String getTypeName();
 	
 	/**
@@ -59,8 +79,10 @@ abstract public class Product implements Serializable, Comparable<Product>
 		String pattern = "##.00";
 		DecimalFormat myFormatter = new DecimalFormat(pattern);
 		String output = myFormatter.format(this.price);
-		return "SKU: " + this.SKU + "\n" + "Title: " + this.quantity + "\n" 
-				 + "Price: " + output + "\n" + "Quantity: " + this.title + "\n";
+		return "SKU: " + this.SKU + "\n" + "Title: " 
+				+ this.title + "\n" 
+				 + "Price: $" + output + "\n"
+				+ "Quantity: " + this.quantity + "\n";
 	}
 	
 	/**
@@ -79,18 +101,36 @@ abstract public class Product implements Serializable, Comparable<Product>
 		System.out.println (fmt);
 	}
 	
+	/**
+     * Displays the formatted header for a product with the 4 common
+     * attributes; SKU, Quantity, Price,and Title.
+     */
 	public void displayHeader()
 	{
 		Formatter header = new Formatter();
-		header.format("%1s %4s %6s %8s\n", "SKU", "Quantity", "Price", "Title");
+		header.format("%1s %2s %4s %6s %8s\n",
+				"Product", "SKU", "Quantity", "Price", "Title");
 		System.out.println(header);
 	}
-
+	
+	 /**
+     * 
+     * @param quantity number of Products.
+     * @return the total price of the product to be sold.
+     */
 	public double totalPrice(int quantity)
 	{	
 		return this.price * quantity;		
 	}
 	
+	/**
+     * Outputs and the processed sale in a formatted display.
+     * @param tPrice total price of product.
+     * @param tShipCre total cost of shipping credits.
+     * @param tCommission total commission cost.
+     * @param shipCost shipping cost.
+     * @param redQuan the quantity being removed.
+     */
 	public void processSale(double tPrice, double tShipCre, 
 			double tCommission, double shipCost, int redQuan)
 	{
@@ -110,14 +150,20 @@ abstract public class Product implements Serializable, Comparable<Product>
 		output = myFormatter.format(profit);
 		System.out.println("Profit:   "  + output);
 		this.quantity = this.quantity - redQuan; 
-		
 	}
-	public boolean haveEnough(int sellQuantity) {
-		
+	/**
+     * 
+     * @param sellQuantity amount of products to sell
+     * @return true if there is enough quantity in inventory to sell.
+     */
+	public boolean haveEnough(int sellQuantity) 
+	{
 		return sellQuantity <= this.quantity;
 	}
+	
 	@Override
-	public int compareTo(Product o) {
+	public int compareTo(Product o) 
+	{
 		Integer rhsSKU = o.SKU;
 		Integer lhsSKU = this.SKU;
 		return lhsSKU.compareTo(rhsSKU);

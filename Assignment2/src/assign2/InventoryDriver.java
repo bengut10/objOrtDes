@@ -3,10 +3,19 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.ArrayList;
 
+/** Class InventoryDriver contains the main method, displays the menu,
+ *        and receives input.
+ * @author Jose G.
+ * @author Ryan J.
+ * @version 1.0
+ */
 public class InventoryDriver {
 
     private static Scanner scan;
 
+    /**
+     * displayMenu method to display the options available to the user
+     */
     public static void displayMenu()
     {
         System.out.println("Video Store Inventory Menu");
@@ -28,7 +37,7 @@ public class InventoryDriver {
         ArrayList <Product> list = new ArrayList <Product> ();
         try
         {
-            FileInputStream fis = new FileInputStream("myfile.dat");
+            FileInputStream fis = new FileInputStream("inventory.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
             list = (ArrayList<Product>) ois.readObject();
             ois.close();
@@ -60,7 +69,7 @@ public class InventoryDriver {
     {
         try
         {
-            FileOutputStream fos= new FileOutputStream("myfile.dat");
+            FileOutputStream fos= new FileOutputStream("inventory.dat");
 	        ObjectOutputStream oos= new ObjectOutputStream(fos);
 	        oos.writeObject(list);
 	        oos.close();
@@ -72,7 +81,10 @@ public class InventoryDriver {
         }
     }
 
-    
+    /**
+     * Receives user input and calls outside class methods to process input.
+     * @param args 
+     */
     public static void main(String[] args) 
     {        
         int choice = 0;
