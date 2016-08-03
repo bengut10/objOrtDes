@@ -20,7 +20,8 @@ public class GradeTracker implements Observer {
 	}
 	
 	@Override
-	public void update(Observable o, Object arg) {
+	public void update(Observable o, Object arg) 
+	{
 		Student student = (Student) o;
 		setLetterGrade(student.getAverage());
 	}

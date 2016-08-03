@@ -2,10 +2,10 @@ package assign5;
 
 import java.text.DecimalFormat;
 
-public class Driver {
-    
-	public static void main(String[] args) {
-
+public class Driver 
+{    
+	public static void main(String[] args)
+	{
         Student student = new Student("Harry Potter");
         student.addAssignmentScore(98.5);
         student.addAssignmentScore(90.1);
@@ -14,20 +14,15 @@ public class Driver {
         student.addExamScore(87);
 
         DecimalFormat df = new DecimalFormat("0.0");
-        // should use algorithm A by default:
-
         System.out.println(student.getName() + "  " +
                            df.format(student.getAverage()));
-
-        // switch to algorithm B:
+        
         GradingStrategy b = new AverageB();
         student.setGradingStrategy(b);
-        
    
         System.out.println(student.getName() + "  " +
                            df.format(student.getAverage()));
-        // switch back to algorithm A here:
-        // <<code to switch to A goes here>>
+     
         GradingStrategy a = new AverageA();
         student.setGradingStrategy(a);
         
@@ -38,23 +33,29 @@ public class Driver {
         student.addExamScore(33);
         System.out.println("Added an exam score.");
         System.out.println("letter grade: " + gt.getLetterGrade());
-        
-        //add a new student
+
         Student hg = new Student("Hermione Granger");
         hg.addAssignmentScore(96.2);
         hg.addAssignmentScore(98.1);
         hg.addAssignmentScore(99.3);
         hg.addExamScore(95);
         hg.addExamScore(97);
-        
-        //make a roster
+ 
         Roster potions = new Roster("Potions","MAG2308");
         potions.addStudent(student);
         potions.addStudent(hg);
         
-        //test the roster traversal
         System.out.println("Potions grades:");
-        // <<code to set up traversal goes here>>
+     
+        StudentRepository studentRepo = new StudentRepository(potions);
+        Iterator iter = studentRepo.getIterator();
+
+        while (iter.hasNext()) 
+        {
+            Double nextAvg = (Double) iter.next();
+            System.out.println("next average "  +
+                               df.format(nextAvg.doubleValue()));
+        }
 
 	}
 }

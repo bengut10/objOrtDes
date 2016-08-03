@@ -12,6 +12,12 @@ public class Roster {
     private String courseName;             // Class name
     private String courseNumber;           // Course number, like cs2308
     private ArrayList<Student> students;   // list of students in the course
+   
+    
+    public ArrayList<Student> getRoster()
+    {
+    	return this.students;
+    }
     
     /**
      * Constructs the roster from its name and number
