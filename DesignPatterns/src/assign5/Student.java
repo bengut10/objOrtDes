@@ -1,6 +1,7 @@
 package assign5;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 
 
@@ -10,7 +11,8 @@ import java.util.ArrayList;
  * @author Jill Seaman
  *
  */
-public class Student {
+public class Student extends  Observable
+{
 	private GradingStrategy gradingS;
     private String name;                    // Students full name
     private ArrayList<Double> assignments;  // scores for the assignments
@@ -41,6 +43,8 @@ public class Student {
 	 */
 	public void addAssignmentScore (double as) {
 		assignments.add(as);
+		setChanged();
+		notifyObservers();
 	}
 	/**
 	 * Adds an exam score to the collection of exam scores for the student.
@@ -48,6 +52,8 @@ public class Student {
 	 */
 	public void addExamScore (double es) {
 		exams.add(es);
+		setChanged();
+		notifyObservers();
 	}
 		   	   
 	/**
