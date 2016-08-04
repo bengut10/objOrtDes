@@ -2,8 +2,20 @@ package assign5;
 
 import java.text.DecimalFormat;
 
+/**
+ * Driver contains the main method and sets students and
+ * assignment/exam scores of students.
+ * @author Jose G.
+ * @author Ryan J.
+ * @version 1.0
+ */ 
 public class Driver 
 {    
+	/**
+	 * main creates new Students and adds assignment and exam scores
+	 * to them. It also outputs the student's letter grade averages.
+	 * @param args command line arguments as a string array.
+	 */ 
 	public static void main(String[] args)
 	{
         Student student = new Student("Harry Potter");
