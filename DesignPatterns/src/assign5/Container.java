@@ -8,5 +8,9 @@ package assign5;
  */
 public interface Container 
 {
+	/**
+	 * Accessor method to get an Iterator object.
+	 * @return Iterator object
+	 */ 
 	public Iterator getIterator();
 }
