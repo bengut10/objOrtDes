@@ -9,11 +9,14 @@ import java.util.Observable;
  * Represents a student and their scores in a class.
  * Stores the name, assignment scores and exam scores.
  * @author Jill Seaman
+ * @author Jose G.
+ * @author Ryan J.
+ * @version 1.0
  *
  */
 public class Student extends  Observable
 {
-	private GradingStrategy gradingS;
+    private GradingStrategy gradingS;	    // GradingStrategy object
     private String name;                    // Students full name
     private ArrayList<Double> assignments;  // scores for the assignments
     private ArrayList<Double> exams;        // scores for the exams
@@ -22,7 +25,6 @@ public class Student extends  Observable
 	 * Constructs the student from their name
 	 * @param name  full name of the student.
 	 */
-    
 	public Student(String name) {
 		this.name = name;
         assignments = new ArrayList<Double>();
