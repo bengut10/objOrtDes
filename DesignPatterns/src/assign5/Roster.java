@@ -5,6 +5,9 @@ import java.util.*;
 /**
  * Represents a class of students.
  * @author Jill Seaman
+ * @author Jose G.
+ * @author Ryan J.
+ * @version 1.0
  *
  */
 public class Roster {
@@ -13,7 +16,10 @@ public class Roster {
     private String courseNumber;           // Course number, like cs2308
     private ArrayList<Student> students;   // list of students in the course
    
-    
+    /**
+     * Returns the list of students in the course.
+     * @return the list of students in the course.
+     */
     public ArrayList<Student> getRoster()
     {
     	return this.students;
