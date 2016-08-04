@@ -40,11 +40,12 @@ public class Driver
         hg.addAssignmentScore(99.3);
         hg.addExamScore(95);
         hg.addExamScore(97);
- 
+        
         Roster potions = new Roster("Potions","MAG2308");
         potions.addStudent(student);
         potions.addStudent(hg);
-        
+       
+    
         System.out.println("Potions grades:");
      
         StudentRepository studentRepo = new StudentRepository(potions);

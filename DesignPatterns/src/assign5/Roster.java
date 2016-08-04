@@ -13,7 +13,8 @@ import java.util.*;
 public class Roster {
     
     private String courseName;             // Class name
-    private String courseNumber;           // Course number, like cs2308
+    @SuppressWarnings("unused")
+	private String courseNumber;           // Course number, like cs2308
     private ArrayList<Student> students;   // list of students in the course
    
     /**
