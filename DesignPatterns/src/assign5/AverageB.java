@@ -52,3 +52,4 @@ public class AverageB implements GradingStrategy {
 		return (examTotal + assignments);
 	}
 }
+
