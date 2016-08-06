@@ -21,26 +21,33 @@ public class CollectionTest
 		collection = new Collection();
 		resource = new Book(10,"title","isbn","author");
 		resource2 = new Movie(7,"title","upc");
-		assertNull(collection.findResource(7));
-		assertNull(collection.findResource(10));
 		collection.addResource(resource);
 		collection.addResource(resource2);
 	}
 	
 	@Test
-	public void testAddedResources()
+	public void testAddedBook()
 	{
 		assertEquals(resource, collection.findResource(10));
+	}
+	
+	@Test
+	public void testAddedMovie()
+	{
 		assertEquals(resource2, collection.findResource(7));
 	}
 	
 	@Test
-	public void testAddExistingResources()
+	public void testAddExistingBook()
 	{
-		testAddedResources();
 		Resource resource3 = new Book(10,"title2","isbn2","author2");
-		Resource resource4 = new Movie(7,"title2","upc2");
 		assertFalse(collection.addResource(resource3));	
+	}
+	
+	@Test
+	public void testAddExistingMovie()
+	{
+		Resource resource4 = new Movie(7,"title2","upc2");
 		assertFalse(collection.addResource(resource4));
 	}
 }
