@@ -15,6 +15,10 @@ public class CollectionTest
 	Resource resource2;
 	Collection collection;
 	
+	/*
+	* setUp method instantiates new Objects and assigns
+	* parameters to Book and Movie
+	*/
 	@Before
 	public void setUp()
 	{
@@ -25,18 +29,30 @@ public class CollectionTest
 		collection.addResource(resource2);
 	}
 	
+	/*
+	* testAddedBook method checks if the Book resource
+	* was successfully added to the ArrayList.
+	*/
 	@Test
 	public void testAddedBook()
 	{
 		assertEquals(resource, collection.findResource(10));
 	}
 	
+	/*
+	* testAddedBook method checks if the Movie resource
+	* was successfully added to the ArrayList.
+	*/
 	@Test
 	public void testAddedMovie()
 	{
 		assertEquals(resource2, collection.findResource(7));
 	}
 	
+	/*
+	* testAddExistingBook checks if the program will add an existing
+	* Book to the ArrayList.
+	*/
 	@Test
 	public void testAddExistingBook()
 	{
@@ -44,6 +60,10 @@ public class CollectionTest
 		assertFalse(collection.addResource(resource3));	
 	}
 	
+	/*
+	* testAddExistingBook checks if the program will add an existing
+	* Book to the ArrayList.
+	*/
 	@Test
 	public void testAddExistingMovie()
 	{
