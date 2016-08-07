@@ -12,6 +12,12 @@ public class ResourceTest {
 	Calendar dueDate;
 	Calendar returnDate;
 	
+	
+	/*
+	* setUp method sets a Resource object
+	* of Book to null and two Calendar objects.
+	* setUp is run again before each test method.
+	*/
 	@Before
 	public void setUp()
 	{
@@ -20,7 +26,10 @@ public class ResourceTest {
 		dueDate.add(Calendar.DATE, 0);
 		resource.setDueDate(dueDate);
 	}
-	
+	/*
+	* returnOnDueDate method checks that there is no fine if
+	* resource is returned on due date.
+	*/
 	@Test
 	public void returnOnDueDate() 
 	{	
@@ -29,7 +38,10 @@ public class ResourceTest {
 		assertEquals("Fine should be: ", 0.00,
 				resource.calculateFine(returnDate), .01);
 	}
-	
+	/*
+	* returnBeforeDueDate method checks that there is no fine if
+	* resource is returned before due date.
+	*/
 	@Test
 	public void returnBeforeDueDate()
 	{
@@ -39,6 +51,10 @@ public class ResourceTest {
 				resource.calculateFine(returnDate), .01);
 	}
 	
+	/*
+	* returnAfterDueDate method checks that there is an appropriate
+	* fine dependant on the number of days the resource is past due.
+	*/
 	@Test
 	public void returnAfterDueDate()
 	{
@@ -48,6 +64,10 @@ public class ResourceTest {
 				resource.calculateFine(returnDate), .01);
 	}
 	
+	/*
+	* returnAfter20Days checks that the fine does not exceed the
+	* $5.00 max limit, but still gives the $5.00 fine.
+	*/
 	@Test
 	public void returnAfter20Days()
 	{
