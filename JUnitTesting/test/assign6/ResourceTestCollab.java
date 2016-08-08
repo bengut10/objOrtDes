@@ -17,6 +17,9 @@ public class ResourceTestCollab {
 	Resource resource1, resource2;
 	Calendar dueDate, checkOut, check;
 
+	/*
+	* setUp method creates two Calendar objects with the current date.
+	*/
 	@Before
 	public void setUp()
 	{
@@ -24,7 +27,14 @@ public class ResourceTestCollab {
 		check = Calendar.getInstance();		
 	}
 	
+<<<<<<< HEAD
 	//Test a student and a book as resource.
+=======
+	/*
+	* testStudentBook checks if the due date was correctly set for
+	* a student's book.
+	*/
+>>>>>>> branch 'master' of https://github.com/bengut10/objOrtDes.git
 	@Test
 	public void testStudentBook()
 	{
@@ -40,7 +50,14 @@ public class ResourceTestCollab {
 				- dueDate.getTimeInMillis()) <= 100);
 	}
 	
+<<<<<<< HEAD
 	//Test a faculty member and a book as resource.
+=======
+	/*
+	* testFacultyBook checks if the due date was correctly set for 
+	* a faculty member's book.
+	*/
+>>>>>>> branch 'master' of https://github.com/bengut10/objOrtDes.git
 	@Test
 	public void testFacultyBook()
 	{
@@ -56,7 +73,14 @@ public class ResourceTestCollab {
 				- dueDate.getTimeInMillis()) <= 100);
 	}
 	
+<<<<<<< HEAD
 	//Test a student and a movie as resource.
+=======
+	/*
+	* testStudentMovie checks if the due date was correctly set for 
+	* a student's movie.
+	*/
+>>>>>>> branch 'master' of https://github.com/bengut10/objOrtDes.git
 	@Test
 	public void TestStudentMovie()
 	{
@@ -72,7 +96,14 @@ public class ResourceTestCollab {
 				- dueDate.getTimeInMillis()) <= 100);
 	}
 	
+<<<<<<< HEAD
 	//Test a faculty member and a movie as resource.
+=======
+	/*
+	* testFacultyBook checks if the due date was correctly set for 
+	* a faculty member's movie.
+	*/
+>>>>>>> branch 'master' of https://github.com/bengut10/objOrtDes.git
 	@Test
 	public void TestFacultyMovie()
 	{
