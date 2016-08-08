@@ -1,6 +1,7 @@
 package assign5;
 
 /**
+<<<<<<< HEAD
  * Class Iterator loops through the elements of a 
  * Roster object 
  * @author Jose G.
@@ -16,6 +17,15 @@ public interface Iterator
 	 * @author Ryan J.
 	 * @version 1.0
 	 */
+=======
+ * Iterator interface contains the method calls for hasNext();
+ * and next();
+ * @author Jose G.
+ * @author Ryan J.
+ * @version 1.0
+ */
+public interface Iterator {
+>>>>>>> branch 'master' of https://github.com/bengut10/objOrtDes.git
 	public boolean hasNext();
 	
 	/**
