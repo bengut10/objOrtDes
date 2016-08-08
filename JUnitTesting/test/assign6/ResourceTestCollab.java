@@ -17,6 +17,9 @@ public class ResourceTestCollab {
 	Resource resource1, resource2;
 	Calendar dueDate, checkOut, check;
 
+	/*
+	* setUp method creates two Calendar objects with the current date.
+	*/
 	@Before
 	public void setUp()
 	{
@@ -24,6 +27,10 @@ public class ResourceTestCollab {
 		check = Calendar.getInstance();		
 	}
 	
+	/*
+	* testStudentBook checks if the due date was correctly set for
+	* a student's book.
+	*/
 	@Test
 	public void testStudentBook()
 	{
@@ -36,6 +43,10 @@ public class ResourceTestCollab {
 		assertTrue((check.getTimeInMillis() - dueDate.getTimeInMillis()) <= 100);
 	}
 	
+	/*
+	* testFacultyBook checks if the due date was correctly set for 
+	* a faculty member's book.
+	*/
 	@Test
 	public void testFacultyBook()
 	{
@@ -48,6 +59,10 @@ public class ResourceTestCollab {
 		assertTrue((check.getTimeInMillis() - dueDate.getTimeInMillis()) <= 100);
 	}
 	
+	/*
+	* testStudentMovie checks if the due date was correctly set for 
+	* a student's movie.
+	*/
 	@Test
 	public void TestStudentMovie()
 	{
@@ -60,6 +75,10 @@ public class ResourceTestCollab {
 		assertTrue((check.getTimeInMillis() - dueDate.getTimeInMillis()) <= 100);
 	}
 	
+	/*
+	* testFacultyBook checks if the due date was correctly set for 
+	* a faculty member's movie.
+	*/
 	@Test
 	public void TestFacultyMovie()
 	{
