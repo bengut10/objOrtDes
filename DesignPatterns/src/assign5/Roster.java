@@ -52,4 +52,35 @@ public class Roster {
         students.add(student);
     }
     
+   public Iterator <Double> averageIterator()
+   {
+	   return new
+			   Iterator<Double>(){
+		   private int rosterIndex = 0;
+		   
+		   @Override
+		   public boolean hasNext()
+		   {
+			   return rosterIndex < students.size();
+		   }
+		   @Override
+		   public Double next()
+		   {
+			   Double result;
+			   if(hasNext())
+			   {
+				   result = students.get(rosterIndex).getAverage();
+				   rosterIndex++;
+				   return result;
+			   }
+			   else
+			   {
+				   throw new NoSuchElementException();
+			   }
+		   }
+		   
+		   
+	   };
+   }
+    
 }

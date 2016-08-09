@@ -1,6 +1,7 @@
 package assign5;
 
 import java.text.DecimalFormat;
+import java.util.Iterator;
 
 /**
  * Driver contains the main method and sets students and
@@ -60,12 +61,12 @@ public class Driver
     
         System.out.println("Potions grades:");
      
-        StudentRepository studentRepo = new StudentRepository(potions);
-        Iterator iter = studentRepo.getIterator();
+        Iterator <Double> itr = potions.averageIterator();
+        
 
-        while (iter.hasNext()) 
+        while (itr.hasNext()) 
         {
-            Double nextAvg = (Double) iter.next();
+            Double nextAvg =  itr.next();
             System.out.println("next average "  +
                                df.format(nextAvg.doubleValue()));
         }
