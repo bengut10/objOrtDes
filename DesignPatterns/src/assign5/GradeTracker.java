@@ -4,17 +4,16 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * GradeTracker is an observer which updates the student's grade
- * and converts a double value to a letter grade.
+ * Class GradeTracker updates the letter grade of a
+ * student when notified.
  * @author Jose G.
  * @author Ryan J.
  * @version 1.0
  */
-//design pattern: Observer
+
 public class GradeTracker implements Observer {
 
-	String letterGrade = null;	// String variable to hold student's letter grade.
-	
+	String letterGrade = null;	
 	
 	/**
 	 * constructs a GradeTracker object
@@ -27,9 +26,13 @@ public class GradeTracker implements Observer {
 	}
 
 	/**
-	 * Accessor method to get the letter grade.
-	 * @return letterGrade as a String.
-	 */ 
+	 * Returns the lettergrade of a student.
+	 * @return lettergrade of a student.
+	 * @author Jose G.
+	 * @author Ryan J.
+	 * @version 1.0
+	 */
+
 	public String getLetterGrade() 
 	{
 		return letterGrade;
@@ -48,9 +51,14 @@ public class GradeTracker implements Observer {
 	}
 	
 	/**
-	 *Changes double value grade to corresponding letter grade.
-	 * @param grade a double value representing the student's average.
-	 */ 
+	 * Determines the lettergrade of a student based on 
+	 * the average.
+	 * @param grade average of a student.
+	 * @author Jose G.
+	 * @author Ryan J.
+	 * @version 1.0
+	 */
+
 	public void setLetterGrade(double grade)
 	{
 		if(grade>= 90)

@@ -12,12 +12,7 @@ import java.util.ArrayList;
  */
 public class AverageA implements GradingStrategy {
 
-        /**
-         * Computes average of exams and assignments.
-         * @param exams an ArrayList of exams.
-         * @param assigns an Array list of assignments.
-         * @returns the average of the exams and assignments as a double.
-         */
+     
 	@Override
 	public double computeAverage(ArrayList<Double> exams, ArrayList<Double> assigns) {
 		double examTotal = 0;
